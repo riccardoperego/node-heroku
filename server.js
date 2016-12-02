@@ -38,7 +38,7 @@ function handleError(res, reason, message, code) {
 app.get("/:nome/:insulto", function(req, res) {
   var msg = "Insulta in questo modo: /:nome/:insulto";
   if(req.params.nome && req.params.insulto){
-    msg = "Hai deciso di insultare "+req.params.nome + ", quindi:<br> " + "<h1>"+ req.params.nome +" "+ req.params.insulto +"</h1>";
+    msg = "Hai deciso di insultare "+req.params.nome + ", quindi:<br> " + "<h1>"+ req.params.nome +" "+ req.params.insulto +"!!!</h1>";
   }
   res.send(msg);
 });
