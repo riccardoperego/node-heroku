@@ -48,6 +48,11 @@ app.get("", function(req, res) {
 
   res.send(msg);
 });
+app.get("/:nome", function(req, res) {
+  var msg = "Dai ti manca solo l'insulto a "+ req.params.nome;
+
+  res.send(msg);
+});
 
 // Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
