@@ -35,9 +35,12 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-app.get("/", function(req, res) {
-  console.log("ci sono");
-  res.send('Hello World!');
+app.get("/:nome/:insulto", function(req, res) {
+  var msg = "Insulta in questo modo: /:nome/:insulto";
+  if(req.params.nome && req.params.insulto){
+    msg = req.params.nome + " " + req.params.insulto;
+  }
+  res.send(msg);
 });
 
 // Initialize the app.
