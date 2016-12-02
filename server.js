@@ -39,7 +39,7 @@ app.get("", function (req, res) {
   var msg = "Insulta in questo modo: insulto/:nome/:insulto";
   res.send(msg);
 });
-app.get("insulto/:nome/:insulto", function (req, res) {
+app.get("/insulto/:nome/:insulto", function (req, res) {
   var msg = "Insulta in questo modo: /:nome/:insulto";
   if (req.params.nome && req.params.insulto) {
     msg = "Hai deciso di insultare " + req.params.nome + ", quindi:<br> " + "<h1>" + req.params.nome + " " + req.params.insulto + "!!!</h1>";
@@ -47,7 +47,7 @@ app.get("insulto/:nome/:insulto", function (req, res) {
   res.send(msg);
 });
 
-app.get("insulto/:nome", function (req, res) {
+app.get("/insulto/:nome", function (req, res) {
   var msg = "Dai ti manca solo l'insulto a " + req.params.nome;
 
   res.send(msg);
