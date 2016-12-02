@@ -32,30 +32,30 @@ var db;
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
-  res.status(code || 500).json({"error": message});
+  res.status(code || 500).json({ "error": message });
 }
 
-app.get("/:nome/:insulto", function(req, res) {
+app.get("/:nome/:insulto", function (req, res) {
   var msg = "Insulta in questo modo: /:nome/:insulto";
-  if(req.params.nome && req.params.insulto){
-    msg = "Hai deciso di insultare "+req.params.nome + ", quindi:<br> " + "<h1>"+ req.params.nome +" "+ req.params.insulto +"!!!</h1>";
+  if (req.params.nome && req.params.insulto) {
+    msg = "Hai deciso di insultare " + req.params.nome + ", quindi:<br> " + "<h1>" + req.params.nome + " " + req.params.insulto + "!!!</h1>";
   }
   res.send(msg);
 });
 
-app.get("", function(req, res) {
+app.get("", function (req, res) {
   var msg = "Insulta in questo modo: /:nome/:insulto";
 
   res.send(msg);
 });
-app.get("/:nome", function(req, res) {
-  var msg = "Dai ti manca solo l'insulto a "+ req.params.nome;
+app.get("/:nome", function (req, res) {
+  var msg = "Dai ti manca solo l'insulto a " + req.params.nome;
 
   res.send(msg);
 });
 
 // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
+var server = app.listen(process.env.PORT || 8080, function () {
+  var port = server.address().port;
+  console.log("App now running on port", port);
+});
