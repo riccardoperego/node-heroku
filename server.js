@@ -7,7 +7,7 @@ var bodyParser = require("body-parser");
 var CONTACTS_COLLECTION = "contacts";
 
 var app = express();
-//app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
@@ -24,11 +24,7 @@ var db;
   db = database;
   console.log("Database connection ready");
 
-  // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
+  
 });*/
 
 // CONTACTS API ROUTES BELOW
@@ -39,6 +35,13 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-app.get("/contacts", function(req, res) {
+app.get("/", function(req, res) {
+  console.log("ci sono");
   res.send('Hello World!');
 });
+
+// Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
